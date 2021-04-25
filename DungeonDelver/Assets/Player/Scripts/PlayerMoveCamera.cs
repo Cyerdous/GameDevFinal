@@ -14,7 +14,7 @@ public class PlayerMoveCamera : MonoBehaviour
 
     public RotationAxes axes = RotationAxes.MouseXandY;
     public float sensitivity = 9.0f;
-    public float verticalRange = 85.0f;
+    public float verticalRange = .0f;
     private Vector3 _rotation;
 
     void Start()
@@ -23,8 +23,7 @@ public class PlayerMoveCamera : MonoBehaviour
         if(body != null)
             body.freezeRotation = true;
 
-        _rotation = transform.localEulerAngles
-        ;
+        _rotation = transform.localEulerAngles;
     }
 
     // Update is called once per frame
