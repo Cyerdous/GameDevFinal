@@ -2,13 +2,13 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
-/DungeonDelver/[Ll]ibrary/
-/DungeonDelver/[Tt]emp/
-/DungeonDelver/[Oo]bj/
-/DungeonDelver/[Bb]uild/
-/DungeonDelver/[Bb]uilds/
-/DungeonDelver/[Ll]ogs/
-/DungeonDelver/[Mm]emoryCaptures/
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Mm]emoryCaptures/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
