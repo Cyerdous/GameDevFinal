@@ -13,8 +13,13 @@ public class Firebolt : MonoBehaviour
         if (collision.gameObject.tag == "attackable")
         {
             collision.gameObject.SendMessage("TakeHit"); // Add damage info to this at some point
-            Destroy(gameObject);
+            
         }
+        Destroy(gameObject);
+    }
+    void OnTriggerEnter(Collider collider)
+    {
+        Destroy(gameObject);
     }
 
     private IEnumerator SelfDestruct()
