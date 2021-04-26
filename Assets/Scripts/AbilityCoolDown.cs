@@ -19,7 +19,6 @@ public class AbilityCoolDown : MonoBehaviour
 
 	void Start()
 	{
-        Debug.Log("initializing firing ability");
 		Initialize(ability, weaponHolder);
 	}
 

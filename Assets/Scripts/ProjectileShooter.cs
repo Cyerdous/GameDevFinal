@@ -13,14 +13,12 @@ public class ProjectileShooter : MonoBehaviour
 
     public void Initialize()
     {
-        Debug.Log("initializing projectileshooter");
         fpsCam = GetComponentInParent<Camera>();
         weaponRange = 50f;
     }
 
     public void Shoot()
     {
-        Debug.Log("attempting to fire");
         Rigidbody proj = Instantiate(projectile, spawn.position, transform.rotation) as Rigidbody;
 
         Vector3 camCenter = fpsCam.ViewportToWorldPoint(new Vector3(.5f, .5f, 0));
@@ -31,7 +29,6 @@ public class ProjectileShooter : MonoBehaviour
         if(Physics.Raycast(camCenter, fpsCam.transform.forward, out hit, weaponRange))
         {
             weaponFire = hit.point - spawn.transform.position;
-            Debug.Log("Raycast" + hit.point.ToString());
         }
         else
         {

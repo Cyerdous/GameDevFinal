@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7542060505c3afd488ff38c2884c92a9, type: 3}
   m_Name: New Projectile Ability
   m_EditorClassIdentifier: 
-  aName: Ability Name
-  aSprite: {fileID: 0}
+  aName: Firebolt
+  aSprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   aSound: {fileID: 0}
   aBaseCooldown: 1
   projectileForce: 500
-  projectile: {fileID: 0}
+  projectile: {fileID: 8004771369588783592, guid: d0d4a79f009bf1f4a9d4a5afad434aad, type: 3}
