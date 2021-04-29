@@ -16,5 +16,6 @@ public class ItemPickup : Interactable
         // Items that are stored in an inventory need a reference to that inventory
         // Mostly to avoid the singleton design pattern that makes multiplayer difficult
         item.PickUp(interactor);   
+        Destroy(gameObject);
     }
 }

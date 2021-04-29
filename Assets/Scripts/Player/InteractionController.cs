@@ -6,7 +6,7 @@ public class InteractionController : MonoBehaviour
 {
     [SerializeField] private float interactionRadius = 3f;
     [SerializeField] private GameObject player;
-    [SerializeField] private string interactButton;
+    [SerializeField] private string interactButton = "Interact";
     
     private Camera firstPerson;
 
@@ -15,11 +15,11 @@ public class InteractionController : MonoBehaviour
         firstPerson = player.GetComponentInChildren<Camera>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyDown(interactButton))
         {
+            Debug.Log("attempting to interact");
             Vector3 camCenter = firstPerson.ViewportToWorldPoint(new Vector3(.5f, .5f, 0));
             RaycastHit hit;
             if(Physics.Raycast(camCenter, firstPerson.transform.forward, out hit, interactionRadius))
@@ -27,6 +27,7 @@ public class InteractionController : MonoBehaviour
                 Interactable interactable = hit.collider.GetComponent<Interactable>();
                 if (interactable != null)
                 {
+                    Debug.Log("found interactable");
                     interactable.Interact(player);
                 }
             }

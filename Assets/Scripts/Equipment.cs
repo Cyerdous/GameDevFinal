@@ -13,6 +13,7 @@ public class Equipment : Item
     public int attackPowerModifier;
     public int critModifier;
     public int healthModifier;
+    public int manaModifier;
     public EquipmentManager equipmentManager;
 
     public override void Use()
@@ -39,8 +40,5 @@ public enum EquipmentSlot
     Hands,
     Waist,
     Legs,
-    Feet,
-    MainHand,
-    OffHand,
-    OneHand
+    Feet
 }

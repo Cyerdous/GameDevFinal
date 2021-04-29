@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : CharacterStats
 {
@@ -19,6 +20,7 @@ public class PlayerStats : CharacterStats
 			attackPower.AddModifier(newItem.attackPowerModifier);
 			crit.AddModifier(newItem.critModifier);
 			maxHealth.AddModifier(newItem.healthModifier);
+            maxMana.AddModifier(newItem.manaModifier);
 		}
 		if (oldItem != null)
 		{
@@ -26,7 +28,15 @@ public class PlayerStats : CharacterStats
 			attackPower.RemoveModifier(oldItem.attackPowerModifier);
 			crit.RemoveModifier(oldItem.critModifier);
 			maxHealth.RemoveModifier(oldItem.healthModifier);
+            maxMana.RemoveModifier(oldItem.manaModifier);
 		}
-        
+
+	}
+
+	public override void Die()
+	{
+		base.Die();
+		// Kill the player
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 }

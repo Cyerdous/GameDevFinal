@@ -5,7 +5,7 @@ using UnityEngine;
 public class Interactable : MonoBehaviour
 {
     public float interactRadius;
-    bool hasInteracted = false;
+    //bool hasInteracted = false;
     protected GameObject interactor;
 
     public void OnMouseOver()
