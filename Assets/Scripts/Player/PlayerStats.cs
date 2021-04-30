@@ -6,10 +6,13 @@ using UnityEngine.SceneManagement;
 public class PlayerStats : CharacterStats
 {
 	private EquipmentManager equipmentManager;
+	public HealthBar healthBar;
 	void Start()
 	{
 		equipmentManager = gameObject.GetComponent<EquipmentManager>();
 		equipmentManager.onEquipmentChanged += OnEquipmentChanged;
+
+		healthBar.SetHealth(1);
 	}
 
 	void OnEquipmentChanged(Equipment newItem, Equipment oldItem)
@@ -38,5 +41,11 @@ public class PlayerStats : CharacterStats
 		base.Die();
 		// Kill the player
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+	}
+
+	public override void TakeDamage(int damage)
+	{
+		base.TakeDamage(damage);
+		healthBar.SetHealth( (float)currentHealth / maxHealth.GetValue() );
 	}
 }
