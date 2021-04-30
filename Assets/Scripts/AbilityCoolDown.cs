@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class AbilityCoolDown : MonoBehaviour
 {
-	public string abilityButtonAxisName = "Fire1";
 	public Image darkMask;
 	public Text coolDownTextDisplay;
 
@@ -16,11 +15,6 @@ public class AbilityCoolDown : MonoBehaviour
 	private float cooldownDuration;
 	private float nextReadyTime;
 	private float cooldownTime;
-
-	void Start()
-	{
-		Initialize(ability, weaponHolder);
-	}
 
 	public void Initialize(Ability selectedAbility, GameObject weaponHolder)
 	{
@@ -34,16 +28,20 @@ public class AbilityCoolDown : MonoBehaviour
 		AbilityReady();
 	}
 
+	public void UseAbility()
+	{
+		if(Time.time > nextReadyTime)
+		{
+			ButtonTriggered();
+		}
+	}
+
 	void Update()
 	{
 		bool cooldownComplete = Time.time > nextReadyTime;
 		if (cooldownComplete)
 		{
 			AbilityReady();
-			if (Input.GetButton(abilityButtonAxisName))
-			{
-				ButtonTriggered();
-			}
 		}
 		else
 		{
@@ -76,4 +74,6 @@ public class AbilityCoolDown : MonoBehaviour
 		abilitySource.Play();
 		ability.TriggerAbility();
 	}
+
+
 }

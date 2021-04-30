@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Firebolt : MonoBehaviour
 {
+    [SerializeField]
+    public int baseDamage = 10;
+    private int damage;
+
     void Start()
     {
         StartCoroutine(SelfDestruct());
@@ -12,7 +16,8 @@ public class Firebolt : MonoBehaviour
     {
         if (collision.gameObject.tag == "attackable")
         {
-            collision.gameObject.SendMessage("TakeHit"); // Add damage info to this at some point
+            CalculateDamage();
+            collision.gameObject.SendMessage("TakeDamage", damage); // Add damage info to this at some point
             
         }
         Destroy(gameObject);
@@ -26,5 +31,10 @@ public class Firebolt : MonoBehaviour
     {
         yield return new WaitForSeconds(4f);
         Destroy(gameObject);
+    }
+
+    void CalculateDamage()
+    {
+        damage = baseDamage;
     }
 }
