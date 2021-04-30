@@ -24,6 +24,9 @@ public class PlayerMoveCamera : MonoBehaviour
             body.freezeRotation = true;
 
         _rotation = transform.localEulerAngles;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
@@ -48,5 +51,18 @@ public class PlayerMoveCamera : MonoBehaviour
 
         transform.localEulerAngles = _rotation;
         _rotation = new Vector3(_rotation.x % 360, _rotation.y % 360, _rotation.z % 360);
+
+        if(Input.GetKeyDown("c"))
+        {
+            if(Cursor.lockState == CursorLockMode.Locked)
+            {
+                Cursor.lockState = CursorLockMode.None;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+            Cursor.visible = !Cursor.visible;
+        }
     }
 }
